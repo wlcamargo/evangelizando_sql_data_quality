@@ -5,6 +5,7 @@ from pathlib import Path
 def validate_data(con, table_name: str) -> bool:
     """Validates if the data meets the required format"""
     try:
+        #Check schema
         columns = con.query(f"SELECT column_name FROM information_schema.columns WHERE table_name = '{table_name}'").fetchall()
         column_names = {col[0] for col in columns}
         required_columns = {'id', 'name', 'country', 'is_botafoguense'}
@@ -13,6 +14,7 @@ def validate_data(con, table_name: str) -> bool:
             print("Missing required columns")
             return False
         
+        #Check for null values 
         null_check = con.query(f"""
             SELECT COUNT(*) 
             FROM {table_name} 
@@ -26,6 +28,7 @@ def validate_data(con, table_name: str) -> bool:
             print("Null values found")
             return False
         
+        #Check is_botafoguense values
         valid_check = con.query(f"""
             SELECT COUNT(*) 
             FROM {table_name} 
