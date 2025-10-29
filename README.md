@@ -1,9 +1,9 @@
 # Pipeline ETL com Data Quality
 
-## 📋 Sobre o Projeto
+## Sobre o Projeto
 Este projeto implementa uma pipeline ETL (Extract, Transform, Load) com validação de qualidade de dados, utilizando Python e DuckDB. O projeto foi desenvolvido para processar dados de palestrantes, aplicando transformações e validações de qualidade.
 
-## 🔄 Fluxo da Pipeline
+## Fluxo da Pipeline
 
 ### Fluxo de Dados
 ```mermaid
@@ -34,10 +34,10 @@ graph LR
 ```
 
 O processo é executado da seguinte forma:
-1. 📥 **Entrada**: Lê os arquivos CSV da pasta `input/`
-2. ✅ **Validação**: Verifica a qualidade dos dados
-3. 🔄 **Processamento**: Se os dados forem válidos, aplica as transformações
-4. 📤 **Saída**: Salva os dados processados na pasta `output/`
+1. **Entrada**: Lê os arquivos CSV da pasta `input/`
+2. **Validação**: Verifica a qualidade dos dados
+3. **Processamento**: Se os dados forem válidos, aplica as transformações
+4. **Saída**: Salva os dados processados na pasta `output/`
    - Só salva se todas as validações passarem
    - Mantém o nome original do arquivo com sufixo `_processed`
    - Exemplo: `palestrantes.csv` → `palestrantes_processed.csv`
